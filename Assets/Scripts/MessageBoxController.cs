@@ -4,6 +4,7 @@ using System.Collections;
 public class MessageBoxController : MonoBehaviour 
 {
 	public GameObject mainObject;
+	public MeteorController meteorController;
 
 	// Use this for initialization
 	void Start () 
@@ -17,17 +18,21 @@ public class MessageBoxController : MonoBehaviour
 	
 	}
 	
+	public void Show()
+	{
+		mainObject.SetActive(true);
+		meteorController.KillAll();
+	}
+	
+	public void Hide()
+	{
+		mainObject.SetActive(false);
+	}
+	
 	public void OnStartButton()
 	{
 		Debug.Log("OnStartButton");
-		
-		mainObject.SetActive(false);
-		
-		// Call Start Battle
-	}
-	
-	public void OnEndButton()
-	{
-		Debug.Log("OnEndButton");
-	}
+		Hide();		
+		meteorController.Generate();
+	}	
 }

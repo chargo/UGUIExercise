@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
-public class Aircraft : MonoBehaviour {
+public class Aircraft : MonoBehaviour 
+{
+	public MessageBoxController messageBox;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +19,7 @@ public class Aircraft : MonoBehaviour {
 	public void OnTriggerEnter(Collider other) 
 	{
 		Debug.LogWarning("OnTriggerEnter: " + other.name);
+		DOTween.Kill();
+		messageBox.Show();
 	}
 }
