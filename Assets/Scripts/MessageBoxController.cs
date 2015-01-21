@@ -33,6 +33,7 @@ public class MessageBoxController : MonoBehaviour
 	{
 		Debug.Log("OnStartButton");
 		Hide();		
+		meteorController.ResetScore();
 		meteorController.Generate();
 	}	
 }
